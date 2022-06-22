@@ -1,0 +1,6 @@
+# minute, hour, day-of-month, month, day-of-week, command
+# Dev: Install updates, every first Monday of the month, at 1AM ET
+0 1 1-7 * 1   yum update -y             > /var/log/yum.updates 2>&1 && /sbin/init 6
+
+# Install security updates, every Monday, at 6AM ET
+0 6 * * 1     yum update -y --security  > /var/log/yum.updates 2>&1
